@@ -1,5 +1,7 @@
 import { createStore } from 'redux';
 
+const gameLength = 10;
+
 const isTired = state => state.coffees < 1 && state.naps < 1;
 const isHyper = state => state.coffees > 3;
 const isEducated = state => state.studies > 2;
@@ -30,10 +32,22 @@ const initialState = {
   studies: 0,
   getActions: getActions,
   getFace: getFace,
+  timer: 0,
+  gameIsActive: false,
 };
 
 function reducer(state = initialState, action) {
   switch(action.type) {
+    case 'LAUNCH_GAME':
+      return { ...state, gameIsActive: true, timer: gameLength };
+    case 'END_GAME':
+      return { ...initialState, gameIsActive: false };
+    case 'DECREMENT_TIMER':
+      return { 
+        ...state, 
+        timer: state.gameIsActive ? state.timer - 1 : state.timer,
+        gameIsActive: state.timer > 0 ? state.gameIsActive : false,
+      };
     case 'DRINK_COFFEE':
       return { ...state, coffees: state.coffees + 1 };
     case 'EAT_SNACK':
