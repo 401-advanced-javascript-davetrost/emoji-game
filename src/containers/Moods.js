@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import Launch from '../components/controls/Launch';
 import Timer from '../components/controls/Timer';
 
-const Moods = ({ gameIsActive, handleStart, handleEnd, timer, decrementTimer, actions, face, handleSelection }) => {
+const Moods = ({ gameIsActive, handleStart, handleEnd, timer, decrementTimer, actions, face, biking, handleSelection }) => {
   return (
     <>
       {!gameIsActive &&
@@ -15,7 +15,7 @@ const Moods = ({ gameIsActive, handleStart, handleEnd, timer, decrementTimer, ac
       {gameIsActive &&
         <>
           <Controls actions={actions} handleSelection={handleSelection}/>
-          <Face emoji={face} />
+          <Face emoji={face} biking={biking} />
           <Timer timer={timer} decrementTimer={decrementTimer} handleEnd={handleEnd}/>
         </>
       }
@@ -25,6 +25,7 @@ const Moods = ({ gameIsActive, handleStart, handleEnd, timer, decrementTimer, ac
 
 const mapStateToProps = state => ({
   gameIsActive: state.gameIsActive,
+  biking: state.biking,
   actions: state.getActions(state),
   face: state.getFace(state),
   timer: state.timer,
@@ -47,6 +48,7 @@ const mapDispatchToProps = dispatch => ({
 
 Moods.propTypes = {
   timer: PropTypes.number.isRequired,
+  biking: PropTypes.number.isRequired,
   gameIsActive: PropTypes.bool.isRequired,
   handleStart: PropTypes.func.isRequired,
   handleEnd: PropTypes.func.isRequired,

@@ -4,11 +4,11 @@ import styles from './Timer.css';
 
 const Timer = ({ timer, handleEnd, decrementTimer }) => {
   useEffect(() => {
-    if(timer > 0){
+    if(timer > 0) {
       setTimeout(decrementTimer, 1000);
     }
-    else {
-      handleEnd();
+    if(timer <= 0) {
+      setTimeout((decrementTimer, handleEnd), 1000);
     }
   }, [timer]);
 
