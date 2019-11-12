@@ -6,7 +6,7 @@ const Controls = ({ actions, handleSelection }) => (
   <section className={styles.Controls}>
     {actions.map(({ name, text, count }) => (
       <button key={name} onClick={() => handleSelection(name)}>
-        {text || name} {!!count && `- ${count}`}
+        {text || name} {!!count && `: ${count}`}
       </button>
     ))}
   </section>
