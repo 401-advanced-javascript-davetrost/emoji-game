@@ -12,9 +12,12 @@ describe('Controls component', () => {
     ];
     handleSelection = jest.fn();
 
-    wrapper = shallow(<Controls
-      actions={actions}
-      handleSelection={handleSelection} />);
+    wrapper = shallow(
+      <Controls
+        actions={actions}
+        handleSelection={handleSelection} 
+      />
+    );
   });
 
   it('renders Controls', () => {

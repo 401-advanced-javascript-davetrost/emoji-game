@@ -1,40 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Moods container matches a snapshot 1`] = `
-<Fragment>
-  <Controls
-    actions={
-      Array [
-        Object {
-          "count": 0,
-          "name": "DRINK_COFFEE",
-          "stateName": "coffees",
-          "text": "Drink Coffee",
+<ContextProvider
+  value={
+    Object {
+      "store": Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
+      },
+      "subscription": Subscription {
+        "handleChangeWrapper": [Function],
+        "listeners": Object {
+          "notify": [Function],
         },
-        Object {
-          "count": 0,
-          "name": "EAT_SNACK",
-          "stateName": "snacks",
-          "text": "Snack",
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "dispatch": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+          Symbol(observable): [Function],
         },
-        Object {
-          "count": 0,
-          "name": "TAKE_NAP",
-          "stateName": "naps",
-          "text": "Nap",
-        },
-        Object {
-          "count": 0,
-          "name": "STUDY",
-          "stateName": "studies",
-          "text": "Study",
-        },
-      ]
+        "unsubscribe": null,
+      },
     }
-    handleSelection={[Function]}
-  />
-  <Face
-    emoji="🤬"
-  />
-</Fragment>
+  }
+>
+  <Connect(Moods) />
+</ContextProvider>
 `;
