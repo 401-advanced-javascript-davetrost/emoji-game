@@ -1,8 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { launchGame, endGame, decrementTimer, handleSelection } from '../actions/emojiActions';
+import {
+  getActions,
+  getFace,
+  getGameIsActive,
+  getBiking,
+  getTimer
+} from '../selectors/emojiSelectors';
 import Controls from '../components/controls/Controls';
 import Face from '../components/face/Face';
-import PropTypes from 'prop-types';
 import Launch from '../components/controls/Launch';
 import Timer from '../components/controls/Timer';
 
@@ -24,25 +32,25 @@ const Moods = ({ gameIsActive, handleStart, handleEnd, timer, decrementTimer, ac
 };
 
 const mapStateToProps = state => ({
-  gameIsActive: state.gameIsActive,
-  biking: state.biking,
-  actions: state.getActions(state),
-  face: state.getFace(state),
-  timer: state.timer,
+  gameIsActive: getGameIsActive(state),
+  biking: getBiking(state),
+  actions: getActions(state),
+  face: getFace(state),
+  timer: getTimer(state),
 });
 
 const mapDispatchToProps = dispatch => ({
   handleStart() {
-    dispatch({ type: 'LAUNCH_GAME' });
+    dispatch(launchGame());
   },
   handleEnd() {
-    dispatch({ type: 'END_GAME' });
+    dispatch(endGame());
   },
   decrementTimer() {
-    dispatch({ type: 'DECREMENT_TIMER' });
+    dispatch(decrementTimer());
   },
   handleSelection(actionName) {
-    dispatch({ type: actionName });
+    dispatch(handleSelection(actionName));
   }
 });
 
