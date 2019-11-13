@@ -7,7 +7,8 @@ import {
   STUDY,
   GO_PLAY,
   GO_BIKING,
-  HAVE_DRINK
+  HAVE_DRINK,
+  RESET_GAME
 } from '../actions/emojiActions';
 
 export const getTimer = ({ emoji }) => emoji.timer;
@@ -25,17 +26,17 @@ export const getGetActions = ({ emoji }) => emoji.getActions;
 export const getGetFace = ({ emoji }) => emoji.getFace;
 export const getGameLength = ({ emoji }) => emoji.gameLength;
 
-const isTired = state => getCoffees(state) < 1 && getNaps(state) < 1;
-const isLaughing = state => getJokes(state) > 5;
-const isHyper = state => getCoffees(state) > 3;
-const isEducated = state => getStudies(state) > 2;
-const isHungry = state => getSnacks(state) < 2;
-const isFullOfSnacks = state => getSnacks(state) > 6;
-const isBored = state => getPlays(state) < 1;
-const isIntoxicated = state => getDrinks(state) >= 1;
-const isHydrated = state => getWaters(state) >= 1 && getSnacks(state) >= 1;
-const isWasted = state => getDrinks(state) >= 3;
-const isSuperWasted = state => getDrinks(state) >= 10;
+export const isTired = state => getCoffees(state) < 1 && getNaps(state) < 1;
+export const isLaughing = state => getJokes(state) > 5;
+export const isHyper = state => getCoffees(state) > 3;
+export const isEducated = state => getStudies(state) > 2;
+export const isHungry = state => getSnacks(state) < 2;
+export const isFullOfSnacks = state => getSnacks(state) > 6;
+export const isBored = state => getPlays(state) < 1;
+export const isIntoxicated = state => getDrinks(state) >= 1;
+export const isHydrated = state => getWaters(state) >= 1 && getSnacks(state) >= 1;
+export const isWasted = state => getDrinks(state) >= 3;
+export const isSuperWasted = state => getDrinks(state) >= 10;
 
 export const getFace = state => {
   if(isFullOfSnacks(state)) return '💩';
@@ -52,7 +53,7 @@ export const getFace = state => {
   if(isEducated(state)) return '🤯';
   if(isHungry(state)) return '😡';
   if(isBored(state)) return '😐';
-  return '😀';
+  return '😆';
 };
 
 export const getActions = state => ([
@@ -65,5 +66,6 @@ export const getActions = state => ([
   { name: GO_PLAY, text: 'Go Play', stateName: 'plays', count: getPlays(state) },
   { name: HAVE_DRINK, text: 'Have a Drink', stateName: 'drinks', count: getDrinks(state) },
   { name: GO_BIKING, text: 'Bike', stateName: 'biking', count: getBiking(state) },
+  { name: RESET_GAME, text: 'RESET', stateName: 'reset' },
 ]);
 

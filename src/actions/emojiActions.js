@@ -5,6 +5,9 @@ export const launchGame = payload => ({ type: LAUNCH_GAME, payload });
 export const END_GAME = 'END_GAME';
 export const endGame = payload => ({ type: END_GAME, payload });
 
+export const RESET_GAME = 'RESET_GAME';
+export const resetGame = payload => ({ type: RESET_GAME, payload });
+
 export const DECREMENT_TIMER = 'DECREMENT_TIMER';
 export const decrementTimer = payload => ({ type: DECREMENT_TIMER, payload });
 
@@ -35,5 +38,4 @@ export const haveDrink = payload => ({ type: HAVE_DRINK, payload });
 export const GO_BIKING = 'GO_BIKING';
 export const goBiking = payload => ({ type: GO_BIKING, payload });
 
-export const HANDLE_SELECTION = 'HANDLE_SELECTION';
 export const handleSelection = actionName => ({ type: actionName });

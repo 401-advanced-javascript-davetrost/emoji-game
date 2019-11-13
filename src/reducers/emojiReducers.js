@@ -1,6 +1,7 @@
 import {
   LAUNCH_GAME,
   END_GAME,
+  RESET_GAME,
   DECREMENT_TIMER,
   DRINK_COFFEE,
   READ_JOKE,
@@ -37,6 +38,8 @@ export default function reducer(state = initialState, action) {
       return { ...state, gameIsActive: true, timer: state.gameLength };
     case END_GAME:
       return { ...initialState, gameIsActive: false };
+    case RESET_GAME:
+      return { ...initialState, gameIsActive: state.gameIsActive, timer: state.timer };
     case DECREMENT_TIMER:
       return { 
         ...state, 
