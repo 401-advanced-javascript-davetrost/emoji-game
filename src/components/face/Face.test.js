@@ -4,7 +4,7 @@ import Face from './Face';
 
 describe('Face component', () => {
   it('renders Face', () => {
-    const wrapper = shallow(<Face emoji="😀" />);
+    const wrapper = shallow(<Face biking={0} emoji="😀" />);
     expect(wrapper).toMatchSnapshot();
   });
 });
