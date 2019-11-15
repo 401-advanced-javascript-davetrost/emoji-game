@@ -1,9 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Face component renders Face 1`] = `
-<p
+<div
   className="Face"
 >
-  😀
-</p>
+  <div
+    biking="undefined"
+  >
+    😀
+  </div>
+</div>
 `;
